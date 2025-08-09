@@ -1,2 +1,2 @@
-# Chat-App
-Chat with anyone, anytime and anywhere !
+# QuickChat - Chat anytime, anywhere
+Chat with anyone, anytime and anywhere!
