@@ -75,7 +75,12 @@ app.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-// Start the server on port 5000
-server.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Start the server on port 5000 if in development stage
+if (process.env.NODE_ENV != "production") {
+  server.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+  });
+}
+
+// export server for vercel
+export default server;
