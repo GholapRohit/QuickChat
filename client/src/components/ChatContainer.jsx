@@ -48,7 +48,7 @@ const ChatContainer = () => {
   const scrollEnd = useRef();
 
   useEffect(() => {
-    if (scrollEnd.current && messages) {
+    if (scrollEnd.current && messages.length > 5) {
       scrollEnd.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages]);
