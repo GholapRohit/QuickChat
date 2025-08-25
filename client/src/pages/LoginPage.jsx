@@ -1,20 +1,31 @@
+import AuthContext from "../../context/authContext";
 import assets from "../assets/assets";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const LoginPage = () => {
+  // Keeps track of whether the current form is "Sign Up" or "Log In"
   const [currState, setCurrState] = useState("Sign Up");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [bio, setBio] = useState("");
+  // Tracks if step 1 (name, email, password) is done in Sign Up; if true -> show bio input
   const [isDataSubmitted, setIsDataSubmitted] = useState(false);
 
-  const onSubmitHandler = (e) => {
+  const { login } = useContext(AuthContext);
+
+  const onSubmitHandler = async (e) => {
     e.preventDefault();
     if (currState === "Sign Up" && !isDataSubmitted) {
       setIsDataSubmitted(true);
       return;
     }
+    await login(currState == "Sign Up" ? "signup" : "login", {
+      fullName,
+      email,
+      password,
+      bio,
+    });
   };
 
   return (
