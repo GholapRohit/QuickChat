@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client"; // React 18+ API to create and re
 import "./index.css"; // Global styles for the application
 import App from "./App.jsx"; // Main application component
 import { BrowserRouter } from "react-router-dom"; // Enables client-side routing
-import { AuthProvider } from "../context/authContext.jsx"; // Provides authentication state and functions to the app
+import { AuthProvider } from "../context/AuthContext.jsx"; // Provides authentication state and functions to the app
 import { ChatProvider } from "../context/ChatContext.jsx";
 
 // Render the root React component inside the HTML element with id 'root'

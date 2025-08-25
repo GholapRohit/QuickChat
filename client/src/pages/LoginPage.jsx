@@ -1,4 +1,4 @@
-import AuthContext from "../../context/authContext";
+import AuthContext from "../../context/AuthContext";
 import assets from "../assets/assets";
 import { useContext, useState } from "react";
 
