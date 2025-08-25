@@ -22,6 +22,7 @@ const Sidebar = () => {
       )
     : users;
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false); // state for menu toggle
 
   useEffect(() => {
     getUsers();
@@ -44,16 +45,26 @@ const Sidebar = () => {
               src={assets.menu_icon}
               alt="menu"
               className="max-h-5 cursor-pointer"
+              onClick={() => setMenuOpen((prev) => !prev)} // toggle on click
             />
-            <div className="absolute top-full right-0 w-32 z-20 p-5 rounded-md bg-[#282142] border border-gray-600 hidden group-hover:block">
+            <div className="absolute top-full right-0 w-32 z-20 p-5 rounded-md bg-[#282142] border border-gray-600">
               <p
-                onClick={() => navigate("/profile")}
+                onClick={() => {
+                  navigate("/profile");
+                  setMenuOpen(false); // close after click
+                }}
                 className="cursor-pointer text-sm"
               >
                 Edit Profile
               </p>
               <hr className="my-2 border-t border-gray-500" />
-              <p onClick={() => logout()} className="cursor-pointer text-sm">
+              <p
+                onClick={() => {
+                  logout();
+                  setMenuOpen(false); // close after click
+                }}
+                className="cursor-pointer text-sm"
+              >
                 Logout
               </p>
             </div>
